@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './signin.css'
 
 const SigninPage = () => {
   const [email, setEmail] = useState('');
@@ -33,13 +34,13 @@ const SigninPage = () => {
       navigate('/');
   }
   return (
-    <div>
-       <nav>
+    <div className="bigContainer">
+       <nav className='navBar'>
         <p>Create a new  account?</p>
         <button onClick={redirectToSignup}>SIgn Up</button>
       </nav>
-
-      <h2>Signin Page</h2>
+      <div className="card">
+      <h2>Welcome Back</h2>
       <form onSubmit={handleSignin}>
         <label>
           Email:
@@ -63,6 +64,11 @@ const SigninPage = () => {
         <br />
         <button type="submit">Signin</button>
       </form>
+
+ <div className="myCircle"></div>
+         <p className="forgot">Forgot your Password ?</p>
+      </div>
+     
     </div>
   );
 };
