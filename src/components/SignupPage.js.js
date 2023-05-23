@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import {  useNavigate } from "react-router-dom";
+import './signup.css'
 
 const SignupPage = () => {
   const [fullName, setFullName] = useState("");
@@ -19,6 +20,7 @@ const SignupPage = () => {
       });
       console.log('Signup response:', response.data);
       // Handle successful signup, such as redirecting to another page
+      navigate('/signin');
     } catch (error) {
       console.error('Failed to signup:', error.response);
       // Handle signup error, such as displaying an error message to the user
@@ -30,8 +32,8 @@ const SignupPage = () => {
   }
 
   return (
-    <div>
-      <nav>
+    <div className="bigContainer">
+      <nav className="navBar">
         <p>Already have an account?</p>
         <button onClick={redirectToLogin}>Log in</button>
       </nav>
