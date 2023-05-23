@@ -51,7 +51,8 @@ app.post('/signin', (req, res) => {
       .then((user) => {
         if (user) {
           // User found, signin successful
-          res.status(200).send('Signin successful');
+          const fullName=user.fullName;
+          res.status(200).send({message:'Signin successfull',fullName});
         } else {
           // User not found or password incorrect
           res.status(401).send('Invalid email or password');

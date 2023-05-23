@@ -14,10 +14,15 @@ const SigninPage = () => {
       const response = await axios.post('http://localhost:5000/signin', {
         email,
         password,
+        
       });
       
       // Handle successful signin, such as storing a token in local storage
       console.log('Signin successful:', response.data);
+      const {fullName}=response.data;
+      localStorage.setItem('fullName',fullName);
+      navigate('/Home')
+
     } catch (error) {
       // Handle signin error, such as displaying an error message to the user
       console.error('Failed to signin:', error.response.data);
